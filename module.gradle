@@ -1,0 +1,9 @@
+ext {
+    moduleLibraryName = "polarimgui"
+    magiskModuleId = "polarimgui"
+    moduleName = "polarimgui"
+    moduleAuthor = "toshi"
+    moduleDescription = "PolarIMGUI ON ZYGISK"
+    moduleVersion = "v1.0"
+    moduleVersionCode = 1
+}
