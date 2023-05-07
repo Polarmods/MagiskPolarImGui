@@ -43,16 +43,16 @@ EGLBoolean new_eglSwapBuffers(EGLDisplay _display, EGLSurface _surface) {
 
     return old_eglSwapBuffers(_display, _surface);
 }
-HOOKED(void, Input, void *thiz, void *ex_ab, void *ex_ac)
-{
-//    auto io = ImGui::GetIO();
-//    if (io.WantCaptureMouse || io.WantCaptureKeyboard) {
-//        return;
-//    }
-    origInput(thiz, ex_ab, ex_ac);
-
-    ImGui_ImplAndroid_HandleInputEvent((AInputEvent *)thiz);
-}
+//HOOKED(void, Input, void *thiz, void *ex_ab, void *ex_ac)
+//{
+////    auto io = ImGui::GetIO();
+////    if (io.WantCaptureMouse || io.WantCaptureKeyboard) {
+////        return;
+////    }
+//    origInput(thiz, ex_ab, ex_ac);
+//
+//    ImGui_ImplAndroid_HandleInputEvent((AInputEvent *)thiz);
+//}
 
 void *hack_thread(void *)
 {
@@ -80,10 +80,10 @@ void *hack_thread(void *)
     {
         hook(eglSwapBuffers, (void *) new_eglSwapBuffers, (void **) &old_eglSwapBuffers);
     }
-    void *sym_input = DobbySymbolResolver(("/system/lib/libinput.so"), ("_ZN7android13InputConsumer21initializeMotionEventEPNS_11MotionEventEPKNS_12InputMessageE"));
-    if (NULL != sym_input) {
-        DobbyHook(sym_input,(void*)myInput,(void**)&origInput);
-    }
+//    void *sym_input = DobbySymbolResolver(("/system/lib/libinput.so"), ("_ZN7android13InputConsumer21initializeMotionEventEPNS_11MotionEventEPKNS_12InputMessageE"));
+//    if (NULL != sym_input) {
+//        DobbyHook(sym_input,(void*)myInput,(void**)&origInput);
+//    }
     void *il2cppHandle = by_dlopen("libil2cpp.so", BY_RTLD_LAZY);
     const char *il2cpp_error = dlerror();
     if (il2cpp_error || !il2cppHandle)
@@ -102,6 +102,8 @@ void *hack_thread(void *)
 
 void initialize()
 {
+    hook((void *) getEnv()->functions->RegisterNatives, (void *) hook_RegisterNatives,
+         (void **) &old_RegisterNatives);
     int ret;
     pthread_t ntid;
     if ((ret = pthread_create(&ntid, nullptr, hack_thread, nullptr))) {

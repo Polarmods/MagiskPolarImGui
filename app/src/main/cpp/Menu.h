@@ -92,20 +92,20 @@ namespace Menu {
              * Don't uncomment this after updating imgui this part crash xD
              * I have to update imgui else InputTextWithHint bork on touch.
              */
-//            io.KeysDown[io.KeyMap[ImGuiKey_UpArrow]] = false;
-//            io.KeysDown[io.KeyMap[ImGuiKey_DownArrow]] = false;
-//            io.KeysDown[io.KeyMap[ImGuiKey_LeftArrow]] = false;
-//            io.KeysDown[io.KeyMap[ImGuiKey_RightArrow]] = false;
-//            io.KeysDown[io.KeyMap[ImGuiKey_Tab]] = false;
-//            io.KeysDown[io.KeyMap[ImGuiKey_Enter]] = false;
-//            io.KeysDown[io.KeyMap[ImGuiKey_Backspace]] = false;
-//            io.KeysDown[io.KeyMap[ImGuiKey_PageUp]] = false;
-//            io.KeysDown[io.KeyMap[ImGuiKey_PageDown]] = false;
-//            io.KeysDown[io.KeyMap[ImGuiKey_Escape]] = false;
-//            io.KeysDown[io.KeyMap[ImGuiKey_Delete]] = false;
-//            io.KeysDown[io.KeyMap[ImGuiKey_Home]] = false;
-//            io.KeysDown[io.KeyMap[ImGuiKey_End]] = false;
-//            io.KeysDown[io.KeyMap[ImGuiKey_Insert]] = false;
+            io.KeysDown[io.KeyMap[ImGuiKey_UpArrow]] = false;
+            io.KeysDown[io.KeyMap[ImGuiKey_DownArrow]] = false;
+            io.KeysDown[io.KeyMap[ImGuiKey_LeftArrow]] = false;
+            io.KeysDown[io.KeyMap[ImGuiKey_RightArrow]] = false;
+            io.KeysDown[io.KeyMap[ImGuiKey_Tab]] = false;
+            io.KeysDown[io.KeyMap[ImGuiKey_Enter]] = false;
+            io.KeysDown[io.KeyMap[ImGuiKey_Backspace]] = false;
+            io.KeysDown[io.KeyMap[ImGuiKey_PageUp]] = false;
+            io.KeysDown[io.KeyMap[ImGuiKey_PageDown]] = false;
+            io.KeysDown[io.KeyMap[ImGuiKey_Escape]] = false;
+            io.KeysDown[io.KeyMap[ImGuiKey_Delete]] = false;
+            io.KeysDown[io.KeyMap[ImGuiKey_Home]] = false;
+            io.KeysDown[io.KeyMap[ImGuiKey_End]] = false;
+            io.KeysDown[io.KeyMap[ImGuiKey_Insert]] = false;
             ImGui::EndFrame();
 
         }
